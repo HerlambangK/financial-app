@@ -1,0 +1,18 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Transaction {
+  id           Int      @id @default(autoincrement())
+  name         String
+  quantity     Int
+  sellingPrice Float
+  buyingPrice  Float
+  type         String // "income" or "expense"  
+  createdAt    DateTime @default(now())
+}
