@@ -127,24 +127,36 @@
 
 	// Fungsi untuk mengirim notifikasi
 	const sendNotification = (message: string) => {
-		if (Notification.permission === 'granted') {
-			new Notification('Notifikasi Transaksi', {
-				body: message,
-				icon: '/logo.png',
-			});
+		if ('Notification' in window) {
+			// Cek apakah Notification tersedia
+			if (Notification.permission === 'granted') {
+				new Notification('Notifikasi Transaksi', {
+					body: message,
+					icon: '/logo.png',
+				});
+			} else {
+				console.error('Izin notifikasi belum diberikan.');
+			}
+		} else {
+			console.error('Notifikasi tidak didukung di browser ini.');
 		}
 	};
 
 	// Request permission for notifications
 	const requestPermission = () => {
-		Notification.requestPermission().then((permission) => {
-			if (permission === 'granted') {
-				console.log('Notification permission granted.');
-				startNotifications();
-			} else {
-				console.log('Notification permission denied.');
-			}
-		});
+		if ('Notification' in window) {
+			// Cek apakah Notification tersedia
+			Notification.requestPermission().then((permission) => {
+				if (permission === 'granted') {
+					console.log('Notification permission granted.');
+					startNotifications();
+				} else {
+					console.log('Notification permission denied.');
+				}
+			});
+		} else {
+			console.error('Notifikasi tidak didukung di browser ini.');
+		}
 	};
 
 	// Function to send notifications every 20 seconds
