@@ -2,11 +2,11 @@
 	<div>
 		<NuxtRouteAnnouncer />
 		<NuxtLoadingIndicator />
-		<nav>
+		<!-- <nav>
 			<NuxtLink to="/">Home</NuxtLink>
 			<NuxtLink to="/transactions">Transaksi</NuxtLink>
 			<NuxtLink to="/reports">Laporan</NuxtLink>
-		</nav>
+		</nav> -->
 		<NuxtPage />
 		<footer>
 			<p>

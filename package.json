@@ -15,7 +15,8 @@
     "axios": "^1.7.9",
     "nuxt": "^3.15.1",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "prisma": "^6.2.1"
